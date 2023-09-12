@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 30px;
+    background: linear-gradient(#101d35, #243b55);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+header {
+    padding: 5px;
+}
+
+header a {
+    text-decoration: none;
+    color:#FAFAFA;
+}
+
+nav {
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+nav ul {
+    list-style: none;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    letter-spacing: .3em;
+    margin-left: 2em;
+}
+
+nav ul li a {
+    color: white;
+    line-height: 3em;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    text-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+    font-weight: bold;
+}
+
+section #main {
+    float: left;
+}
+
+aside {
+    float: left;
+    width: 10em;
+    text-align: center;
+}
+
+aside h4 {
+    color: white;
+    padding-bottom: 30px;
+    font-size: 20px;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    background-color: #152f48;
+    padding: 15px 0px;
+    border-bottom: 2px solid white;
+}
+
+aside ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+aside ul li:hover {
+    background-color: darkslateblue;
+}
+
+
+div.page {
+    background-color: lightgrey;
+    position: absolute;
+    top: 70px;
+    left: 210px;
+    display: block;
+    margin-top: 100px;
+    width: 70vw;
+    height: 30vw;
+    overflow: scroll;
+}
+
+section.container{
+    display: inline-block;
+}
+
+.tool {
+    float : right;
+
+}
+.tool a {
+    color: #000000;
+}
+.view-img {
+   width:15vw;
+   height:15vw;
+   overflow: hidden;
+}

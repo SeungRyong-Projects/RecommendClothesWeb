@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>My Page</title>
+  <link rel="stylesheet" type="text/css" href="/css/myPage.css"/>
+</head>
+<body>
+<header>
+  <h1>
+    <a href="/myPage/myPage">마이페이지</a>
+  </h1>
+  <nav>
+    <ul>
+      <li class="nav-item" th:if="${session.isEmpty()}">
+        <a href="/member/login" class="nav-link">로그인</a>
+      </li>
+      <li class="nav-item" th:unless="${session.isEmpty()}">
+        <a href="/member/logout" class="nav-link">로그아웃</a>
+      </li>
+      <li><a href="/main/mainPage">main page</a></li>
+      <li><a href="/myPage/myPage">my page</a></li>
+      <li><a href="/board/list">게시판</a></li>
+    </ul>
+  </nav>
+</header>
+<aside>
+  <br>
+  <h4>카테고리</h4>
+  <ul>
+    <li><a href="/category/street" target="iframe">스트릿</a></li>
+    <li><a href="/category/cutout" target="iframe">컷아웃</a></li>
+    <li><a href="/category/gorpCore" target="iframe">고프코어</a></li>
+    <li><a href="/category/mixMatch" target="iframe">믹스매치</a></li>
+    <li><a href="/category/feminine" target="iframe">페미닌</a></li>
+    <li><a href="/category/school" target="iframe">통학룩</a></li>
+    <li><a href="/category/work" target="iframe">출근룩</a></li>
+    <li><a href="/category/y2k" target="iframe">Y2K</a></li>
+  </ul>
+</aside>
+<section>
+  <form th:action="@{/myPage/fix}" method="post">
+    <div class="content">
+      <div class="content-box">
+        <div class="feed_box"></div>
+        <div class="feed_box"></div>
+      </div>
+      <th:block th:each="result : ${result}">
+        <div class="profile-box">
+          <div class="profile-img">
+            <div class="profile-info">
+              <div class="profile">
+                <img src="/image/profile.png">
+              </div>
+              <a target="_blank" th:text="@{|닉네임 : *{result.name}|}"></a>
+              <button type="submit" id="submit">수정하기</button>
+              <div class="icon">
+                <div class="item"><a target="_blank" th:href="${result.instagram}"><img
+                        src="/image/instagram.png"></a></div>
+                <div class="item"><a target="_blank" th:href="${result.blog}"><img
+                        src="/image/blog.png"></a>
+                </div>
+              </div>
+            </div>
+            <div class="body">
+              <p class="text-center" th:text="@{|거주지역 : *{result.location}|}"></p>
+              <p class="text-center" th:text="@{|선호스타일 : *{result.style}|}"></p>
+              <p class="text-center" th:text="@{|키 : *{result.height}|}"></p>
+              <p class="text-center" th:text="@{|몸무게 : *{result.weight}|}"></p>
+              <button class="button3" type="button">Up load</button>
+            </div>
+          </div>
+        </div>
+      </th:block>
+    </div>
+  </form>
+</section>
+</body>
+</html>

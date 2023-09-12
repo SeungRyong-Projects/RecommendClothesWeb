@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 2vw;
+    background: linear-gradient(#101d35, #243b55);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+header {
+    padding: 1vw;
+}
+
+header a {
+    text-decoration: none;
+    color:#FAFAFA;
+}
+
+nav {
+    margin-top: 1vw;
+    margin-bottom: 0.2vw;
+}
+
+nav ul {
+    list-style: none;
+    border-top: 0.2vw solid white;
+    border-bottom: 0.2vw solid white;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    letter-spacing: .1vw;
+    margin-left: 3vw;
+}
+
+nav ul li a {
+    color: white;
+    line-height: 3vw;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    text-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+    font-weight: bold;
+}
+
+section #main {
+    float: left;
+}
+
+aside {
+    position: fixed;
+    float: left;
+    width: 10vw;
+    text-align: center;
+}
+
+aside h4 {
+    color: white;
+    padding-bottom: 1.5vw;
+    font-size: 1vw;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    background-color: #152f48;
+    padding: 0.75vw 0vw;
+    border-bottom: 0.1vw solid white;
+}
+
+aside ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+aside ul li:hover {
+    background-color: darkslateblue;
+}
+
+.content {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    padding-top: 3vw;
+    margin-left: 12vw;
+}
+
+
+.content {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    padding-top: 3vw;
+    margin-left: 12vw;
+}
+
+.content .content-box {
+    display: flex;
+    background-color: lightgrey;
+    width: 60vw;
+    height: auto;
+    flex-direction: column;
+}
+
+.weather-box {
+    background:rgba(255,255,255,0.6);
+    width: 21vw;
+    height: auto;
+    position: fixed;
+    right: 3%;
+    border-radius: 20px;
+    border: 2px darkgrey solid;
+}
+
+.weather-box .weather {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 7px auto;
+}
+
+.weather-box .body {
+    padding: 10px;
+    font-size: 16px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Find PW</title>
+    <link rel="stylesheet" type="text/css" href="/css/member.css"/>
+</head>
+<body>
+<div class="login-box">
+    <h2 class="logo">비밀번호 찾기</h2>
+    <form method="post" action="/member/find_pw">
+        <div class="user-box">
+            <input type="text" name="userId" required="">
+            <label>Name</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="name" required="">
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input type="email" name="email" required="">
+            <label>Email</label>
+        </div>
+        <button type="submit" id="submit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            비밀번호 찾기
+        </button>
+    </form>
+    <nav>
+        <div class="login-list">
+            <div class ="item" ><a href="/member/login">로그인</a> </div>
+            <div class ="item" ><a href="/member/join">회원가입</a> </div>
+            <div class ="item" ><a href="/member/find_id">아이디 찾기</a> </div>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

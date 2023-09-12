@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+</head>
+<body>
+<header>
+    <h1>
+        <a href= "/main/mainPage">패션추천 페이지</a>
+    </h1>
+    <nav>
+        <ul>
+            <li><a href="/member/login">로그아웃</a></li>
+            <li><a href="/main/mainPage">main page</a></li>
+            <li><a href="/myPage/myPage">my page</a></li>
+            <li><a href="/board/list">게시판</a></li>
+        </ul>
+    </nav>
+</header>
+<aside>
+    <br>
+    <h4>카테고리</h4>
+    <ul>
+        <ul>
+            <li><a href="/category/street" target="iframe">스트릿</a></li>
+            <li><a href="/category/cutout" target="iframe">컷아웃</a></li>
+            <li><a href="/category/gorpCore" target="iframe">고프코어</a></li>
+            <li><a href="/category/mixMatch" target="iframe">믹스매치</a></li>
+            <li><a href="/category/feminine" target="iframe">페미닌</a></li>
+            <li><a href="/category/school" target="iframe">통학룩</a></li>
+            <li><a href="/category/work" target="iframe">출근룩</a></li>
+            <li><a href="/category/y2k" target="iframe">Y2K</a></li>
+        </ul>
+</aside>
+<section>
+    <div class="content">
+        <div class="content-box">
+            <h1>#오늘의 베스트 스타일</h1>
+            <br>
+            <div>
+                <h3>가장 좋아요를 많이 받은 스타일</h3>
+                <div>
+                    <ul>
+                        <a href="/myPage/myPage">박소정</a>
+                        <a href="/myPage/myPage">@username</a>
+                        <small>10분 전</small>
+
+                    </ul>
+                </div>
+                <br>
+                <a href="/main/category"><img src="/static/png/ba.jpg" alt="옷" width="282" height="282" ></a>
+                <a href="/main/category"><img src="/static/png/ba.jpg" alt="옷" width="282" height="282" ></a>
+                <a href="/main/category"><img src="/static/png/ba.jpg" alt="옷" width="282" height="282" ></a>
+                <h3>가장 많은 댓글이 달린 스타일</h3>
+                <div>
+                    <ul>
+                        <a href="/myPage/myPage">박소정</a>
+                        <a href="/myPage/myPage">@username</a>
+                        <small>20분 전</small>
+                    </ul>
+                </div>
+                <br>
+                <a href="/main/category"><img src="/static/png/ba.jpg" alt="옷" width="282" height="282" ></a>
+                <a href="/main/category"><img src="/static/png/ba.jpg" alt="옷" width="282" height="282" ></a>
+                <a href="/main/category"><img src="/static/png/ba.jpg" alt="옷" width="282" height="282" ></a>
+            </div>
+        </div>
+        <div class="weather-box">
+            <div class="weather">
+                날씨 이미지
+            </div>
+            <div class="body">
+                <p class="text-center" th:text="@{|위도 : *{lat}|}"></p>
+                <p class="text-center" th:text="@{|경도 : *{lon}|}"></p>
+                <p class="text-center" th:text="@{|날씨 : *{main}|}"></p>
+                <p class="text-center" th:text="@{|정도 : *{description}|}"></p>
+                <p class="text-center" th:text="@{|최저기온 : *{temp_min}|}"></p>
+                <p class="text-center" th:text="@{|최대기온 : *{temp_max}|}"></p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

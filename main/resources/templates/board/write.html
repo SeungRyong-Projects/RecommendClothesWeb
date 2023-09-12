@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판</title>
+  <link rel="stylesheet" type="text/css" href="/css/write.css" />
+</head>
+
+<header>
+  <h1>
+    <a href= "/board/list">게시판</a>
+  </h1>
+</header>
+
+<body>
+<nav>
+  <ul>
+    <li class="nav-item" th:if="${session.isEmpty()}">
+      <a href="/member/login" class="nav-link">로그인</a>
+    </li>
+    <li class="nav-item" th:unless="${session.isEmpty()}">
+      <a href="/member/logout" class="nav-link">로그아웃</a>
+    </li>
+    <li><a href="/main/mainPage">main page</a></li>
+    <li><a href="/myPage/myPage">my page</a></li>
+    <li><a href="/board/list">게시판</a></li>
+  </ul>
+</nav>
+
+<aside id="left">
+  <br>
+  <h4>카테고리</h4>
+  <ul>
+    <li><a href="/category/street" target="iframe">스트릿</a></li>
+    <li><a href="/category/cutout" target="iframe">컷아웃</a></li>
+    <li><a href="/category/gorpCore" target="iframe">고프코어</a></li>
+    <li><a href="/category/mixMatch" target="iframe">믹스매치</a></li>
+    <li><a href="/category/feminine" target="iframe">페미닌</a></li>
+    <li><a href="/category/school" target="iframe">통학룩</a></li>
+    <li><a href="/category/work" target="iframe">출근룩</a></li>
+    <li><a href="/category/y2k" target="iframe">Y2K</a></li>
+  </ul>
+</aside>
+
+<section class="section1">
+
+  <form id="writeForm" class="container" method="post" enctype="multipart/form-data" action="/board/save">
+    <legend class="visually-hidden">게시물 작성</legend>
+    <input type="hidden" class="form-control" id="id" name="id" th:value="${boardVO.id}">
+    <input type="hidden" class="form-control" id="code" name="code" th:value="${boardVO.code}">
+    <div class="mb-3">
+      <label for="title" class="form-label">제목</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="제목" th:value="${boardVO.title}">
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">내용</label>
+      <textarea class="form-control" id="content" name="content" rows="10" placeholder="내용" th:utext="${boardVO.content}"></textarea>
+    </div>
+    <div class="mb-3">
+      <p>버튼을 누르면 파일이 삭제됩니다.</p>
+      <div class="mb-3" th:each="file : ${uploadFileVO}">
+        <p>
+          <button class="btn btn-danger btnDel" th:fileId="${file.id}" type="button" th:text="${file.fileName}"></button>
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <input type="file" name="file" class="form-control"/>
+      <input type="file" name="file" class="form-control"/>
+    </div>
+    <hr>
+    <div class="d-flex justify-content-center mb-3">
+      <button type="submit" class="btn btn-success">저장</button>
+      <a href="/board/list" class="btn btn-secondary">취소</a>
+    </div>
+  </form>
+</section>
+<!--업로드파일 수정-->
+<script>
+        $(function(){
+            $('.btnDel').click(function(){
+                const fileId = $(this).attr('fileId');
+                if(fileId) {
+                    $.get('http://localhost:8080/board/deleteFile/' + fileId, function(res){
+                        console.log(res);
+                        if(res.success) location.reload();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

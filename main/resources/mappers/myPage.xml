@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.MyPageMapper">
+
+    <!-- 정보 수정 -->
+    <update id="updateMyPage" parameterType="MemberVO">
+        UPDATE member SET
+            instagram = #{instagram},
+            blog = #{blog},
+            location = #{location},
+            style = #{style},
+            height = #{height},
+            weight = #{weight}
+        WHERE user_id = #{userId}
+    </update>
+
+
+    <!-- 인스타 블로그 계정 추가 -->
+    <select id="insertMyPage" parameterType="MemberVO">
+        INSERT INTO member (
+            instagram,
+            blog,
+            location,
+            style
+        ) VALUES (
+            #{instagram},
+            #{blog},
+            #{location},
+            #{style}
+        )
+    </select>
+
+    <select id="selectMyPageVOById" parameterType="int" resultType="MemberVO">
+        SELECT
+            instagram,
+            blog,
+            location,
+            style,
+            height,
+            weight
+        FROM member
+        WHERE id = #{id}
+    </select>
+
+</mapper>
